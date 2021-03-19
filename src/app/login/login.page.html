@@ -1,0 +1,38 @@
+<ion-content>
+
+  <div class="wrapper">
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3" size-xl="4" offset-xl="4" class="ion-text-center ion-padding" style="background-color: #970fb9;">
+        <h1>iCondus</h1>
+      </ion-col>
+
+      <ion-col size="12" size-md="6" offset-md="3" size-xl="4" offset-xl="4" class="ion-text-center ion-padding">
+
+        <form class="ion-padding" [formGroup]="loginForm">
+          <ion-item>
+            <ion-label position="stacked">E-mail</ion-label>
+            <ion-input type="email" formControlName="email" placeholder="E-mail" autocomplete="true" spellcheck="true"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Senha</ion-label>
+            <ion-input type="password" formControlName="password" placeholder="Senha"></ion-input>
+          </ion-item>
+
+          <div class="ion-padding-top">
+            <small>Não possui cadastro?</small> <small style="font-weight: bold;"> Cadastrar</small>
+          </div>
+
+          <ion-button class="ion-margin-top" type="submit" expand="full" (click)="login(loginForm.value)">Entrar</ion-button>
+
+          <h4>OU</h4>
+
+          <ion-button class="ion-margin-top" color="light" type="submit" expand="full" (click)="login(loginForm.value)">
+            Entrar com Google
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>
