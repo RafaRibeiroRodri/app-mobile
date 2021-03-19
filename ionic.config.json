@@ -1,0 +1,7 @@
+{
+  "name": "icondus",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
