@@ -11,7 +11,10 @@ export class DashboardPage implements OnInit {
   user;
 
   dashboardItems: {routerLink: string, title: string, icon: string}[] = [
-    {routerLink: '', title: 'Reservas', icon: 'list'}
+    {routerLink: 'dados', title: 'Dados Pessoais', icon: 'person-outline'},
+    {routerLink: '', title: 'Reservas', icon: 'calendar-number-outline'},
+    {routerLink: 'mural', title: 'Mural de Noticias', icon: 'clipboard-outline'},
+    {routerLink: 'suporte', title: 'Suporte', icon: 'chatbubbles-outline'},
   ];
 
   constructor(private router: Router) {

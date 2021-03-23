@@ -14,6 +14,18 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)
+      },
+      {
+        path: 'dados',
+        loadChildren: () => import('./dadospessoais/dados.module').then(m => m.DadosPessoaisModule)
+      },
+      {
+        path: 'suporte',
+        loadChildren: () => import('./suporte/suporte.module').then(m => m.SuporteModule)
+      },
+      {
+        path: 'mural',
+        loadChildren: () => import('./mural/mural.module').then(m => m.MuralModule)
       }
     ]
   },
