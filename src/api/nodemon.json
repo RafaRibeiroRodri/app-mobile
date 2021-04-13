@@ -1,0 +1,9 @@
+{
+    "env": {
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "Brawlhalla123@",
+        "MYSQL_DATABASE": "iCondus",
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PORT": "3306"
+    }
+}
