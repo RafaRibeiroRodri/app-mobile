@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Dados} from '../../api/model/dados';
 
 @Component({
   selector: 'app-dados',
@@ -8,19 +12,21 @@ import { TestBed } from '@angular/core/testing';
 })
 export class DadosPage {
 
-  dados = {
-    nome: "Test",
-    cpf: "123.123.123-12",
-    rg: "12.123.123-1",
-    dataNas: "01/03/1999",
-    unidade: "15",
-    bloco: "A",
-    telFixo: "(12) 3207-1098",
-    telCel: "(12) 9999-9999" 
+  private endPoint;
+
+  constructor(private http: HttpClient) {
+    this.http = http;
+    this.endPoint = `${environment.backendUrl}`;
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor() {
-
+  get(): Observable<Array<Dados>> {
+    return this.http.get(this.endPoint + '/morador/dados/:morador_id').pipe(
+      map((dados: any) => dados.map(dp => new Dados(dp)))
+    );
   }
 
 }

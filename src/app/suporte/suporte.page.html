@@ -42,7 +42,7 @@
     <ion-col size="12">
       <ion-item>
         <ion-label>Sugestão:</ion-label>
-        <ion-textarea type="text" [(ngModel)]="sugestao" rows="10"></ion-textarea>
+        <ion-textarea type="text" [(ngModel)]="texto" rows="10"></ion-textarea>
       </ion-item>
     </ion-col>
 
@@ -52,7 +52,7 @@
 
 <ion-footer>
   <ion-col class="ion-text-right" size="12">
-    <ion-button color="light" type="submit" expand="full" (click)="back()">
+    <ion-button color="light" type="submit" expand="full" (click)="create()">
       Finalizar
     </ion-button>
   </ion-col>
