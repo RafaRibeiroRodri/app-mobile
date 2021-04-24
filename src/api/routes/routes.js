@@ -34,9 +34,13 @@ router.get('/morador/dados/:morador_id', (req, res) => {
 
 //post de login
 router.post('/morador/login', (req, res) => {
-    const body = req.body;
-    console.log(body);
-    Morador.login(body, res);
+    try {
+        const body = req.body;
+        console.log(body);
+        Morador.login(body, res);
+    } catch (error) {
+       console.log("error", error); 
+    }
 })
 
 //get de noticias para o mural

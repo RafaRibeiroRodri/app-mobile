@@ -13,20 +13,20 @@ import {Mural} from '../../api/model/mural';
 export class MuralPage {
   
   private endPoint;
+  mural;
 
   constructor(private http: HttpClient) {
     this.http = http;
     this.endPoint = `${environment.backendUrl}`;
+    this.get();
   }
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  get(): Observable<Array<Mural>> {
-    return this.http.get(this.endPoint + '/noticias').pipe(
-      map((mural: any) => mural.map(mr => new Mural(mr)))
-    );
+  get() {
+    this.http.get(this.endPoint + '/noticias').subscribe((data: any) => { this.mural = data.noticias})
   }
 
 }

@@ -7,82 +7,75 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<!-- person-outline -->
+
 <ion-content>
-  <ion-row>
-    <ion-col size="12" class="ion-text-center" >
-      <ion-icon name="person-outline" style="font-size: 100px;" class="avatar"></ion-icon>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>Nome:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.nome"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+  <ng-container *ngIf="dados">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center" >
+        <ion-icon name="person-outline" style="font-size: 100px;" class="avatar"></ion-icon>
+      </ion-col>
+    </ion-row>
   
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>CPF:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.cpf"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Nome:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.nome"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>CPF:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.cpf"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>RG:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.rg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
   
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>RG:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.rg"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>Data de Nascimento:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.dataNas"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="6">
-      <ion-item>
-        <ion-label>Unidade:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.unidade"></ion-input>
-      </ion-item>
-    </ion-col>
-
-    <ion-col size="6">
-      <ion-item>
-        <ion-label>Bloco:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.bloco"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>Telefone fixo:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.telFixo"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Data de Nascimento:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.data_nasc"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
   
-  <ion-row>
-    <ion-col size="12">
-      <ion-item>
-        <ion-label>Telefone celular:</ion-label>
-        <ion-input type="text" [(ngModel)]="dados.telCel"></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>Unidade:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.unidade"></ion-input>
+        </ion-item>
+      </ion-col>
+  
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>Bloco:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.bloco"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Telefone celular:</ion-label>
+          <ion-input type="text" [(ngModel)]="dados.telefone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ng-container>
 
 </ion-content>

@@ -16,12 +16,24 @@ class Mural {
     }
 
     muralGet(res) {
-        mysql.query('SELECT * FROM noticias',  (error, resultado) => {
+        mysql.query('SELECT * FROM noticias limit 4',  (error, resultado) => {
             if (error) {
                 res.status(400).json(error);
             } else {
                 res.status(201).json({
                     noticias: resultado
+                });
+            }
+        });      
+    }
+
+    muralDelete(res) {
+        mysql.query('DELETE * from noticias where noticias_id = ?',  (error) => {
+            if (error) {
+                res.status(400).json(error);
+            } else {
+                res.status(201).json({
+                    noticias: "noticia deletada"
                 });
             }
         });      

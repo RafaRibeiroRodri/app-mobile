@@ -7,11 +7,20 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
+import {JwtModule} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, JwtModule.forRoot({
+    config: {
+      allowedDomains: [
+        'localhost:3000',
+      ],
+      disallowedRoutes: []
+    }
+  }),
+],
   providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })

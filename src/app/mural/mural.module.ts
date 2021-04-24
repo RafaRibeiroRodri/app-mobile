@@ -6,6 +6,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {MuralPage} from './mural.page'
 import { MuralPageRoutingModule } from './mural-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MuralPageRoutingModule } from './mural-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    MuralPageRoutingModule
+    MuralPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [MuralPage]
 })

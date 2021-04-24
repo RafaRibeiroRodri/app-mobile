@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
 import {DadosPage} from './dados.page'
+import { HttpClientModule } from '@angular/common/http';
 import { DadosPageRoutingModule } from './dados-routing.module';
 
 
@@ -13,7 +14,8 @@ import { DadosPageRoutingModule } from './dados-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    DadosPageRoutingModule
+    DadosPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [DadosPage]
 })

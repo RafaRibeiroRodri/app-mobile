@@ -1,7 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ToastController} from '@ionic/angular';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,21 @@ import {ToastController} from '@ionic/angular';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
 
+  private endPoint;
+  email;
+  senha;
+
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private toastr: ToastController) {
+              private toastr: ToastController,
+              private http: HttpClient) {
+
+    this.endPoint = `${environment.backendUrl}`;
   }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -23,13 +36,21 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async login(values: {email: string, password: string}) {
+  login(values: {email: string, password: string}) {
+    let data = JSON.stringify ({
+      email: values.email, 
+      senha: values.password
+    });
     if (this.loginForm.valid) {
-      localStorage.setItem('user', JSON.stringify(values));
-      console.log('teste')
-      await this.router.navigate(['home', 'dashboard']);
+      this.http.post(this.endPoint + '/morador/login', data, this.httpOptions).subscribe((data: any) => { 
+        console.log(data);
+        localStorage.setItem('user', JSON.stringify(data.morador[0]));
+        this.router.navigate(['home', 'dashboard']);
+      }, error => {
+        console.log(error)
+      });
     } else {
-      await this.toastr.create({
+      this.toastr.create({
         message: 'Usuário e senha incorretos'
       });
     }

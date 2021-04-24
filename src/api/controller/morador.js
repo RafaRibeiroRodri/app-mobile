@@ -6,9 +6,7 @@ class Morador {
         mysql.query('SELECT m.email FROM morador m;', (err, resultado) => {
             for (let k = 0; k < resultado.length; k++) {
                 if (body.email === resultado[k].email) { 
-                    res.status(400).json({ 
-                        message: "Email ja cadastrado" 
-                    }); 
+                    console.log("Email ja cadastrado"); 
                 } else {
                     console.log("ok");
                 }
@@ -50,25 +48,30 @@ class Morador {
         });      
     }
 
-
     login(body, res) {
         console.log("body", body);
         mysql.query(`SELECT * FROM morador m WHERE m.email = '${body.email}'`, (err, result) => {
             console.log("resultado", result);
-            if (body.senha === result[0].senha) {
-                res.status(200).send({
-                    message: 'Login efetuado com sucesso',
-                    morador: result
+            if (result === []) {
+                res.status(400).send({
+                    message: 'Email não encontrado'
                 });
             } else {
-                res.status(400).send({
-                    erro: 'Email ou senha incorreto'
-                });
+                if (body.senha === result[0].senha) {
+                    res.status(200).send({
+                        message: 'Login efetuado com sucesso',
+                        morador: result
+                    });
+                } else {
+                    res.status(400).send({
+                        erro: 'Senha incorreta'
+                    });
+                }
             }
+        console.log("error", err)
         });
     }
     
-
 }
 
 module.exports = new Morador;

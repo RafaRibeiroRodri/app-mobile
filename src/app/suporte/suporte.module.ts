@@ -6,6 +6,7 @@ import {IonicModule} from '@ionic/angular';
 
 import { SuportePageRoutingModule } from './suporte-routing.module';
 import {SuportePage} from './suporte.page'
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {SuportePage} from './suporte.page'
     CommonModule,
     FormsModule,
     IonicModule,
-    SuportePageRoutingModule
+    SuportePageRoutingModule,
+    HttpClientModule
   ],
   declarations: [SuportePage]
 })
