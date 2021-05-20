@@ -1,9 +1,9 @@
-const mysql = require('../mysql').connection;
+const conexao = require('../infra/mysql');
 
 class Mural {
 
     muralPost(body, res) {
-        mysql.query('INSERT INTO noticias SET ?', body, (err) => {
+        conexao.query('INSERT INTO noticias SET ?', body, (err) => {
             if (err) {
                 res.status(400).json(err);
             } else {
@@ -16,7 +16,7 @@ class Mural {
     }
 
     muralGet(res) {
-        mysql.query('SELECT * FROM noticias limit 4',  (error, resultado) => {
+        conexao.query('SELECT * FROM noticias limit 4',  (error, resultado) => {
             if (error) {
                 res.status(400).json(error);
             } else {
@@ -28,7 +28,7 @@ class Mural {
     }
 
     muralDelete(res) {
-        mysql.query('DELETE * from noticias where noticias_id = ?',  (error) => {
+        conexao.query('DELETE * from noticias where noticias_id = ?',  (error) => {
             if (error) {
                 res.status(400).json(error);
             } else {

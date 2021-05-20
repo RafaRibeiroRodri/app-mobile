@@ -1,9 +1,9 @@
-const mysql = require('../mysql').connection;
+const conexao = require('../infra/mysql');
 
 class Suporte {
 
     suportePost(body, res) {
-        mysql.query('INSERT INTO suporte SET ?', body, (err) => {
+        conexao.query('INSERT INTO suporte SET ?', body, (err) => {
             if (err) {
                 res.status(400).json(err);
             } else {

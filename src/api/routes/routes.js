@@ -55,7 +55,16 @@ router.post('/suporte', (req, res) => {
     Suporte.suportePost(body, res);
 })
 
+//get de areas comuns
+router.get('/areas', (req, res) => {
+    Morador.getAreas(res);
+})
 
-
+//reservar area 
+router.post('/reservas', (req, res) => {
+    const body = req.body;
+    console.log(body);
+    Morador.reservarArea(body, res);
+})
 
 module.exports = router;
