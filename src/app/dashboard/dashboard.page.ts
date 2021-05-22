@@ -14,6 +14,7 @@ export class DashboardPage implements OnInit {
     {routerLink: 'dados', title: 'Dados Pessoais', icon: 'person-outline'},
     {routerLink: 'mural', title: 'Mural de Noticias', icon: 'clipboard-outline'},
     {routerLink: 'suporte', title: 'Suporte', icon: 'chatbubbles-outline'},
+    {routerLink: 'reservas', title: 'Reservas', icon: 'calendar-outline'},
   ];
 
   constructor(private router: Router) {
@@ -21,7 +22,8 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
-    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log("user", this.user);
   }
 
   async logout() {

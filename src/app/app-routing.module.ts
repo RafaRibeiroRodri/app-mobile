@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path: 'mural',
         loadChildren: () => import('./mural/mural.module').then(m => m.MuralModule)
+      },
+      {
+        path: 'reservas',
+        loadChildren: () => import('./reservas/reserva.module').then(m => m.ReservaModule)
       }
     ]
   },
