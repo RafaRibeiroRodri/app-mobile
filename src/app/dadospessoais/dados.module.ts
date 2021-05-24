@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 import {DadosPage} from './dados.page'
 import { HttpClientModule } from '@angular/common/http';
 import { DadosPageRoutingModule } from './dados-routing.module';
+import {Camera} from '@ionic-native/camera/ngx';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DadosPageRoutingModule } from './dados-routing.module';
     DadosPageRoutingModule,
     HttpClientModule
   ],
-  declarations: [DadosPage]
+  declarations: [DadosPage],
+  providers: [Camera]
 })
 export class DadosPessoaisModule {
 }
