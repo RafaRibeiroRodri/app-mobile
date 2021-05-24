@@ -29,7 +29,7 @@ export class DadosPage {
               private camera: Camera) {
     this.http = http;
     this.endPoint = `${environment.backendUrl}`;
-    // this.get();
+    this.get();
   }
 
   httpOptions = {
