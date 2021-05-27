@@ -43,17 +43,6 @@ router.post('/morador/login', (req, res) => {
     }
 })
 
-router.post('/morador/update/:morador_id', (req, res) => {
-    try {
-        const body = req.body;
-        const id = req.params.morador_id
-        console.log(body);
-        Morador.updateById(body, id, res);
-    } catch (error) {
-       console.log("error", error); 
-    }
-})
-
 //get de noticias para o mural
 router.get('/noticias', (req, res) => {
     Mural.muralGet(res);

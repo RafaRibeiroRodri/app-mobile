@@ -36,18 +36,6 @@ class Morador {
         });      
     }
 
-    getById(id, res) {
-        conexao.query(`SELECT * FROM morador WHERE morador_id = ${id}`,  (error, resultado) => {
-            if (error) {
-                res.status(400).json(error);
-            } else {
-                res.status(201).json({
-                    morador: resultado
-                });
-            }
-        });      
-    }
-
     updateById(foto, id, res) {
         conexao.query(`UPDATE morador SET foto = ${foto} WHERE morador_id = ${id}`,  (error, resultado) => {
             if (error) {
