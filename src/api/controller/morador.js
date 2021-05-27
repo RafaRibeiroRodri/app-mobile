@@ -48,6 +48,18 @@ class Morador {
         });      
     }
 
+    updateById(foto, id, res) {
+        conexao.query(`UPDATE morador SET foto = ${foto} WHERE morador_id = ${id}`,  (error, resultado) => {
+            if (error) {
+                res.status(400).json(error);
+            } else {
+                res.status(201).json({
+                    message: "Usuário alterado com sucesso"
+                });
+            }
+        });      
+    }
+
     login(body, res) {
         console.log("body", body);
         conexao.query(`SELECT * FROM morador m WHERE m.email = '${body.email}'`, (err, result) => {
