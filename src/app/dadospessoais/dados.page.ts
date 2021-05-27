@@ -11,7 +11,6 @@ import {Camera} from '@ionic-native/camera/ngx';
 export class DadosPage {
 
   private endPoint;
-  currentImage;
   foto;
   dados: {
     morador_id;
@@ -51,7 +50,7 @@ export class DadosPage {
         bloco: usuario.bloco,
         telefone: usuario.telefone
       };
-      this.currentImage = usuario.foto; // quando vc implementar o campo foto no tabela de usuários, é só atribuir o valor pra essa variável que já vai trocar no html
+      this.foto = usuario.foto; // quando vc implementar o campo foto no tabela de usuários, é só atribuir o valor pra essa variável que já vai trocar no html
     });
   }
 
@@ -70,13 +69,12 @@ export class DadosPage {
         correctOrientation: true
         }
       );
-      this.currentImage = 'data:image/jpeg;base64,' + imageData;
+      this.foto = 'data:image/jpeg;base64,' + imageData;
       // aqui vc pode chamar o endpoint que atualiza o usuário e passar a imagem que está dentro da variável currentImage
-      let data = JSON.stringify ({
+      const data = JSON.stringify ({
         foto: this.foto, id: this.dados.morador_id
       });
-      const user = JSON.parse(localStorage.getItem('user'));
-      this.http.put(this.endPoint + `/morador/update/${user.morador_id}`, data, this.httpOptions).subscribe(data => { 
+      this.http.put(this.endPoint + `/morador/update/${this.dados.morador_id}`, data, this.httpOptions).subscribe(data => {
         console.log(data);
       }, error => {
         console.log(error);

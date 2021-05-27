@@ -16,6 +16,7 @@ import {JwtModule} from '@auth0/angular-jwt';
     config: {
       allowedDomains: [
         'localhost:3000',
+        '192.168.1.6:3000'
       ],
       disallowedRoutes: []
     }

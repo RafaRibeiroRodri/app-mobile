@@ -7,11 +7,6 @@ const session = require('express-session');
 
 const rotaDados = require('./routes/routes');
 
-
-const corsOptions = {
-    origin: 'http://localhost:8100',
-    optionsSuccessStatus: 200
-};
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -20,7 +15,7 @@ app.use(session({
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 app.use('/', rotaDados);
