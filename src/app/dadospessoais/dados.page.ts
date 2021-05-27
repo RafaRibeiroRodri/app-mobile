@@ -50,7 +50,7 @@ export class DadosPage {
         bloco: usuario.bloco,
         telefone: usuario.telefone
       };
-      this.foto = usuario.foto; // quando vc implementar o campo foto no tabela de usuários, é só atribuir o valor pra essa variável que já vai trocar no html
+      this.foto = JSON.parse(localStorage.getItem('foto')).foto; // quando vc implementar o campo foto no tabela de usuários, é só atribuir o valor pra essa variável que já vai trocar no html
     });
   }
 
@@ -70,15 +70,7 @@ export class DadosPage {
         }
       );
       this.foto = 'data:image/jpeg;base64,' + imageData;
-      // aqui vc pode chamar o endpoint que atualiza o usuário e passar a imagem que está dentro da variável currentImage
-      const data = JSON.stringify ({
-        foto: this.foto, id: this.dados.morador_id
-      });
-      this.http.put(this.endPoint + `/morador/update/${this.dados.morador_id}`, data, this.httpOptions).subscribe(data => {
-        console.log(data);
-      }, error => {
-        console.log(error);
-      });
+      localStorage.setItem('foto', JSON.stringify({foto: this.foto}));
     } catch (e) {
       console.log('error handler: ', e);
     }
