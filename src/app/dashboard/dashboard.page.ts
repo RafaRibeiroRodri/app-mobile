@@ -15,6 +15,7 @@ export class DashboardPage implements OnInit {
     {routerLink: 'mural', title: 'Mural de Noticias', icon: 'clipboard-outline'},
     {routerLink: 'suporte', title: 'Suporte', icon: 'chatbubbles-outline'},
     {routerLink: 'reservas', title: 'Reservas', icon: 'calendar-outline'},
+    {routerLink: 'moradores', title: 'Moradores', icon: 'people-outline'},
   ];
 
   constructor(private router: Router) {

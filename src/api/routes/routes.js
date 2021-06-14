@@ -12,11 +12,6 @@ router.post('/morador/registro', (req, res) => {
     Morador.post(body, res);
 })
 
-//get de moradores
-router.get('/morador/dados', (req, res) => {
-    Morador.get(res);
-})
-
 //post de noticias para o mural
 router.post('/noticias/registro', (req, res) => {
     const body = req.body;
@@ -65,6 +60,11 @@ router.post('/reservas', (req, res) => {
     const body = req.body;
     console.log(body);
     Morador.reservarArea(body, res);
+})
+
+//get de moradores
+router.get('/morador/dados', (req, res) => {
+    Morador.get(res);
 })
 
 module.exports = router;

@@ -30,6 +30,10 @@ const routes: Routes = [
       {
         path: 'reservas',
         loadChildren: () => import('./reservas/reserva.module').then(m => m.ReservaModule)
+      },
+      {
+        path: 'moradores',
+        loadChildren: () => import('./moradores/moradores.module').then(m => m.MoradoresModule)
       }
     ]
   },
