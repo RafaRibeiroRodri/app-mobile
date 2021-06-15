@@ -40,16 +40,16 @@ export class MoradoresPage {
       const usuarios = data.moradores
       this.moradores = {
           idades: {
-              jovens: usuarios.idades.jovens,
-              adultos: usuarios.idades.adultos,
-              idosos: usuarios.idades.idosos
+              jovens: usuarios?.idades?.jovens || '',
+              adultos: usuarios?.idades?.adultos || '',
+              idosos: usuarios?.idades?.idosos || ''
           },
           generos: {
-              masc: usuarios.generos.masc,
-              fem: usuarios.generos.fem,
-              nIdent: usuarios.generos.nIdent
+              masc: usuarios?.generos?.masc || '',
+              fem: usuarios?.generos?.fem || '',
+              nIdent: usuarios?.generos?.nIdent || ''
           },
-          quantidade: usuarios.quantidade
+          quantidade: usuarios?.quantidade || ''
       }
 
       console.log("moradores", this.moradores);
