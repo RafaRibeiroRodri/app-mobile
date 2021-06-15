@@ -32,10 +32,11 @@ class Morador {
             } else {
                 const generos = Quantidade.quantidadePorGenero(resultado);
                 const idades = Quantidade.quantidadePorIdade(resultado);
+                const quantidade = resultado.length;
                 const body = {
                     idades: idades,
                     generos: generos,
-                    total: resultado.length
+                    quantidade: quantidade
                 }
                 res.status(201).json({
                     moradores: body

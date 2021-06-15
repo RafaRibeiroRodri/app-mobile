@@ -11,17 +11,17 @@ export class MoradoresPage {
 
   private endPoint;
   moradores: {
-      idades: {
-          jovens,
-          adultos,
-          idosos
-      },
-      generos: {
-          masc,
-          fem,
-          nIdent
-      },
-      total
+    idades: {
+      jovens,
+      adultos,
+      idosos
+    },
+    generos: {
+      masc,
+      fem,
+      nIdent
+    },
+    quantidade
   };
 
   constructor(private http: HttpClient,) {
@@ -37,19 +37,22 @@ export class MoradoresPage {
   get() {
     this.http.get(this.endPoint + `/morador/dados`).subscribe((data: any) => {
       console.log('data', data);
+      const usuarios = data.moradores
       this.moradores = {
           idades: {
-              jovens: data.moradores.idades.jovens,
-              adultos: data.moradores.idades.adultos,
-              idosos: data.moradores.idades.idosos
+              jovens: usuarios.idades.jovens,
+              adultos: usuarios.idades.adultos,
+              idosos: usuarios.idades.idosos
           },
           generos: {
-              masc: data.moradores.generos.masc,
-              fem: data.moradores.generos.fem,
-              nIdent: data.moradores.generos.nIdent
+              masc: usuarios.generos.masc,
+              fem: usuarios.generos.fem,
+              nIdent: usuarios.generos.nIdent
           },
-          total: data.moradores.total
+          quantidade: usuarios.quantidade
       }
+
+      console.log("moradores", this.moradores);
     });
   }
 
