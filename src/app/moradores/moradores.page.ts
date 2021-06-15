@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Camera} from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-moradores',
@@ -11,14 +10,18 @@ import {Camera} from '@ionic-native/camera/ngx';
 export class MoradoresPage {
 
   private endPoint;
-  dados: {
-    quantidade;
-    masc;
-    fem;
-    nIdent;
-    jovens;
-    adultos;
-    idosos;
+  moradores: {
+      idades: {
+          jovens,
+          adultos,
+          idosos
+      },
+      generos: {
+          masc,
+          fem,
+          nIdent
+      },
+      total
   };
 
   constructor(private http: HttpClient,) {
@@ -32,17 +35,21 @@ export class MoradoresPage {
   };
 
   get() {
-    this.http.get(this.endPoint + `/morador/dados/`).subscribe((data: any) => {
-      const moradoes = data;
-      this.dados = {
-        quantidade: moradoes.quantidade,
-        masc: moradoes.masc,
-        fem: moradoes.fem,
-        nIdent: moradoes.nIdent,
-        jovens: moradoes.jovens,
-        adultos: moradoes.adultos,
-        idosos: moradoes.idosos,
-      };
+    this.http.get(this.endPoint + `/morador/dados`).subscribe((data: any) => {
+      console.log('data', data);
+      this.moradores = {
+          idades: {
+              jovens: data.moradores.idades.jovens,
+              adultos: data.moradores.idades.adultos,
+              idosos: data.moradores.idades.idosos
+          },
+          generos: {
+              masc: data.moradores.generos.masc,
+              fem: data.moradores.generos.fem,
+              nIdent: data.moradores.generos.nIdent
+          },
+          total: data.moradores.total
+      }
     });
   }
 

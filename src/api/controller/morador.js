@@ -1,4 +1,5 @@
 const conexao = require('../infra/mysql');
+const Quantidade = require('./quantidade');
 
 class Morador {
 
@@ -29,8 +30,15 @@ class Morador {
             if (error) {
                 res.status(400).json(error);
             } else {
+                const generos = Quantidade.quantidadePorGenero(resultado);
+                const idades = Quantidade.quantidadePorIdade(resultado);
+                const body = {
+                    idades: idades,
+                    generos: generos,
+                    total: resultado.length
+                }
                 res.status(201).json({
-                    morador: resultado
+                    moradores: body
                 });
             }
         });      

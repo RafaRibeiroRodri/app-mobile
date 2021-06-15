@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Dados Pessoais</ion-title>
+    <ion-title class="ion-text-center">Moradores</ion-title>
 
     <ion-buttons slot="start">
       <ion-back-button defaultHref="dashboard"></ion-back-button>
@@ -13,7 +13,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Quant. Moradores:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.quantidade"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.total"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -24,7 +24,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Masculino</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.masc"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.generos.masc"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -33,7 +33,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Feminino:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.fem"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.generos.fem"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -42,7 +42,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Não informado:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.nIdent"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.generos.nIdent"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -50,17 +50,17 @@
     <ion-label>Faixa etaria:</ion-label>
 
     <ion-row>
-      <ion-col size="6">
+      <ion-col size="12">
         <ion-item>
           <ion-label>Jovens:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.jovens"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.idades.jovens"></ion-input>
         </ion-item>
       </ion-col>
 
-      <ion-col size="6">
+      <ion-col size="12">
         <ion-item>
           <ion-label>Adultos:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.adultos"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.idades.adultos"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -69,7 +69,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Idosos:</ion-label>
-          <ion-input type="text" [(ngModel)]="dados.idosos"></ion-input>
+          <ion-input type="text" [(ngModel)]="moradores.idades.idosos"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
