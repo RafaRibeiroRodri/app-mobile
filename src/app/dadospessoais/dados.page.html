@@ -12,21 +12,15 @@
   <ion-row>
     <ion-col size="12">
       <ion-avatar style="width: 150px; height: 150px; margin: 10px auto auto;">
-<!--        aqui eu chamo aquela variável que estamos atribuindo a imagem, se n tiver valor, eu coloco uma imagem default-->
         <img style="max-width: 100%;" [src]="foto ? foto: 'assets/img/undefined-user-picture.png'">
       </ion-avatar>
     </ion-col>
 
     <ion-col size="12" class="ion-text-center">
-<!--      implementei o botão pra excluir a imagem, mas só se vc quiser-->
-<!--      <ion-button size="small" color="danger" class="icon"<ion-icon name="trash" slot="start"></ion-icon> Remover</ion-button>-->
-
-<!--      aqui eu chamo o metódo que abre a câmera do celular-->
       <ion-button size="small" (click)="openCamera()"><ion-icon name="camera" slot="start"></ion-icon> Câmera</ion-button>
     </ion-col>
   </ion-row>
 
-<!--  coloquei esse if aqui pra validar se tem o id do morador antes de mostrar todos os dados dele, é só pra garantir dado-->
   <ng-container *ngIf="dados && dados.morador_id">
     <ion-row>
       <ion-col size="12">
